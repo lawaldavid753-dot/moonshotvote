@@ -989,6 +989,15 @@ footer {
   border: none !important;
   box-shadow: 0 6px 24px rgba(227, 45, 45, 0.2);
 }
+.modal_rect_button_no:hover { box-shadow: 0 10px 32px rgba(227, 45, 45, 0.35); }
+.connect-button {
+  background: linear-gradient(180deg, #F937FF, #D618C9) !important;
+  color: #FFF !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 6px 24px rgba(249, 55, 255, 0.2);
+}
+.connect-button:hover { box-shadow: 0 10px 32px rgba(249, 55, 255, 0.35); }
 
 /* ===== INFO MODALS (About / Rewards) ===== */
 .modal_rect_info { max-width: 620px; }
