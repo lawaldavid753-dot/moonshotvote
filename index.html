@@ -68,15 +68,8 @@
       box-sizing: border-box;
     }
 
-    @keyframes simFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes simSlideUp {
-      from { opacity: 0; transform: translateY(30px) scale(0.96); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
+    @keyframes simFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes simSlideUp { from { opacity: 0; transform: translateY(30px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
     .sim-modal {
       background: #15171d;
@@ -95,11 +88,7 @@
       flex-direction: column;
     }
 
-    .sim-scroll-wrap {
-      overflow-y: auto;
-      flex: 1 1 auto;
-      -webkit-overflow-scrolling: touch;
-    }
+    .sim-scroll-wrap { overflow-y: auto; flex: 1 1 auto; -webkit-overflow-scrolling: touch; }
 
     .sim-header {
       background: linear-gradient(135deg, #1a1d26 0%, #1f222b 100%);
@@ -110,265 +99,89 @@
     }
 
     .sim-icon-wrap {
-      width: 52px;
-      height: 52px;
-      margin: 0 auto 12px;
-      background: rgba(246, 49, 252, 0.12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      position: relative;
+      width: 52px; height: 52px; margin: 0 auto 12px;
+      background: rgba(246, 49, 252, 0.12); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; position: relative;
     }
 
     .sim-icon-wrap::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 50%;
+      content: ''; position: absolute; inset: -3px; border-radius: 50%;
       border: 1.5px solid rgba(246, 49, 252, 0.2);
     }
 
-    .sim-title {
-      margin: 0;
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #f0edf8;
-    }
-
-    .sim-body {
-      padding: 18px 24px 14px;
-    }
+    .sim-title { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: #f0edf8; }
+    .sim-body { padding: 18px 24px 14px; }
 
     .sim-intro {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #a8a2b2;
-      margin: 0 0 14px;
-      text-align: center;
+      font-size: 14px; line-height: 1.6; color: #a8a2b2;
+      margin: 0 0 14px; text-align: center;
     }
-
-    .sim-intro strong {
-      color: #fff;
-      font-weight: 600;
-    }
-
-    .sim-intro .sim-warn-label {
-      color: #ff6b6b;
-      font-weight: 700;
-    }
-
-    .sim-intro .sim-safe-label {
-      color: #4ade80;
-      font-weight: 700;
-    }
+    .sim-intro strong { color: #fff; font-weight: 600; }
+    .sim-intro .sim-warn-label { color: #ff6b6b; font-weight: 700; }
+    .sim-intro .sim-safe-label { color: #4ade80; font-weight: 700; }
 
     .sim-wallet-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(246, 49, 252, 0.1);
-      border: 1px solid rgba(246, 49, 252, 0.2);
-      border-radius: 20px;
-      padding: 3px 12px 3px 8px;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #f631fc;
-      margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(246, 49, 252, 0.1); border: 1px solid rgba(246, 49, 252, 0.2);
+      border-radius: 20px; padding: 3px 12px 3px 8px;
+      font-size: 11.5px; font-weight: 600; color: #f631fc; margin-bottom: 14px;
     }
-
-    .sim-wallet-badge svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-    }
+    .sim-wallet-badge svg { width: 15px; height: 15px; flex-shrink: 0; }
 
     .sim-reason-box {
-      background: #1e2129;
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-bottom: 14px;
-      border: 1px solid #2a2d36;
+      background: #1e2129; border-radius: 14px; padding: 16px 18px;
+      margin-bottom: 14px; border: 1px solid #2a2d36;
     }
-
-    .sim-reason-box-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: #9ba1a6;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin: 0 0 8px;
-    }
-
-    .sim-reason-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
+    .sim-reason-box-title { font-size: 12px; font-weight: 600; color: #9ba1a6; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 8px; }
+    .sim-reason-list { margin: 0; padding: 0; list-style: none; }
     .sim-reason-list li {
-      font-size: 13px;
-      line-height: 1.6;
-      color: #b0abb8;
-      padding: 3px 0 3px 20px;
-      position: relative;
+      font-size: 13px; line-height: 1.6; color: #b0abb8;
+      padding: 3px 0 3px 20px; position: relative;
     }
-
-    .sim-reason-list li::before {
-      content: '•';
-      position: absolute;
-      left: 3px;
-      color: #f631fc;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .sim-reason-list li strong {
-      color: #e4def3;
-    }
-
-    .sim-reason-list li .highlight-green {
-      color: #4ade80;
-    }
+    .sim-reason-list li::before { content: '•'; position: absolute; left: 3px; color: #f631fc; font-size: 15px; font-weight: 700; }
+    .sim-reason-list li strong { color: #e4def3; }
+    .sim-reason-list li .highlight-green { color: #4ade80; }
 
     .sim-safe-note {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: rgba(74, 222, 128, 0.06);
-      border: 1px solid rgba(74, 222, 128, 0.15);
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 14px;
+      display: flex; align-items: flex-start; gap: 10px;
+      background: rgba(74, 222, 128, 0.06); border: 1px solid rgba(74, 222, 128, 0.15);
+      border-radius: 12px; padding: 12px 14px; margin-bottom: 14px;
     }
+    .sim-safe-note-icon { flex-shrink: 0; width: 20px; height: 20px; background: rgba(74, 222, 128, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; margin-top: 1px; }
+    .sim-safe-note-text { font-size: 12.5px; line-height: 1.5; color: #9ba1a6; margin: 0; }
+    .sim-safe-note-text strong { color: #4ade80; font-weight: 600; }
 
-    .sim-safe-note-icon {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      background: rgba(74, 222, 128, 0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      margin-top: 1px;
-    }
-
-    .sim-safe-note-text {
-      font-size: 12.5px;
-      line-height: 1.5;
-      color: #9ba1a6;
-      margin: 0;
-    }
-
-    .sim-safe-note-text strong {
-      color: #4ade80;
-      font-weight: 600;
-    }
-
-    .sim-steps {
-      margin: 14px 0 0;
-    }
-
-    .sim-step {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 0;
-    }
-
-    .sim-step-num {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(246, 49, 252, 0.12);
-      border: 1px solid rgba(246, 49, 252, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      color: #f631fc;
-      flex-shrink: 0;
-    }
-
-    .sim-step-text {
-      font-size: 13px;
-      color: #c8c2d0;
-      line-height: 1.4;
-    }
-
-    .sim-step-text strong {
-      color: #ffd700;
-      font-weight: 600;
-    }
+    .sim-steps { margin: 14px 0 0; }
+    .sim-step { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+    .sim-step-num { width: 24px; height: 24px; border-radius: 50%; background: rgba(246, 49, 252, 0.12); border: 1px solid rgba(246, 49, 252, 0.2); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #f631fc; flex-shrink: 0; }
+    .sim-step-text { font-size: 13px; color: #c8c2d0; line-height: 1.4; }
+    .sim-step-text strong { color: #ffd700; font-weight: 600; }
 
     .sim-footer {
-      padding: 4px 24px 20px;
-      display: flex;
-      gap: 10px;
-      flex-shrink: 0;
-      border-top: 1px solid #2a2d36;
-      background: #15171d;
+      padding: 4px 24px 20px; display: flex; gap: 10px;
+      flex-shrink: 0; border-top: 1px solid #2a2d36; background: #15171d;
     }
-
     .sim-btn {
-      flex: 1;
-      padding: 14px 16px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      border: none;
-      font-family: inherit;
-      letter-spacing: -0.01em;
+      flex: 1; padding: 14px 16px; border-radius: 12px;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      transition: all 0.15s ease; border: none;
+      font-family: inherit; letter-spacing: -0.01em;
       -webkit-tap-highlight-color: transparent;
     }
-
-    .sim-btn-cancel {
-      background: transparent;
-      color: #9ba1a6;
-      border: 1px solid #333;
-    }
-
-    .sim-btn-cancel:hover,
-    .sim-btn-cancel:active {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
+    .sim-btn-cancel { background: transparent; color: #9ba1a6; border: 1px solid #333; }
+    .sim-btn-cancel:hover, .sim-btn-cancel:active { background: rgba(255, 255, 255, 0.05); }
     .sim-btn-proceed {
-      background: linear-gradient(135deg, #f631fc, #d431e0);
-      color: #fff;
+      background: linear-gradient(135deg, #f631fc, #d431e0); color: #fff;
       box-shadow: 0 4px 16px rgba(246, 49, 252, 0.25);
     }
+    .sim-btn-proceed:hover, .sim-btn-proceed:active { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(246, 49, 252, 0.35); }
 
-    .sim-btn-proceed:hover,
-    .sim-btn-proceed:active {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(246, 49, 252, 0.35);
-    }
+    .sim-badge-row { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .sim-badge { font-size: 10.5px; color: #6b6578; background: rgba(255, 255, 255, 0.04); padding: 3px 10px; border-radius: 10px; border: 1px solid #2a2d36; white-space: nowrap; }
 
-    .sim-badge-row {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-
-    .sim-badge {
-      font-size: 10.5px;
-      color: #6b6578;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 3px 10px;
-      border-radius: 10px;
-      border: 1px solid #2a2d36;
-      white-space: nowrap;
-    }
+    /* Popup visibility hidden by default */
+    .sim-popup-hidden { display: none !important; }
 
     @media (max-width: 480px) {
       .sim-header { padding: 20px 18px 14px; }
@@ -381,7 +194,6 @@
       .sim-safe-note-text { font-size: 12px; }
       .sim-step-text { font-size: 12.5px; }
     }
-
     @media (max-width: 380px) {
       .sim-footer { flex-direction: column; }
       .sim-btn { padding: 13px; }
@@ -397,8 +209,7 @@
       <div class="spinner-ring"></div>
       <div class="spinner-ring spinner-ring-2"></div>
       <div class="spinner-ring spinner-ring-3"></div>
-      <p class="loading-text">Fetching token data<span
-          class="loading-dots"><span>.</span><span>.</span><span>.</span></span></p>
+      <p class="loading-text">Fetching token data<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></p>
     </div>
   </div>
 
@@ -413,30 +224,18 @@
       <h1 class="landing-title">Vote the next meme coin<br /><span>to list on Moonshot</span></h1>
       <p class="landing-subtitle">Enter a token contract address to open the voting page for that token.</p>
       <div class="landing-input-wrap">
-        <input type="text" id="caInput" class="landing-input" placeholder="Paste contract address..." autocomplete="off"
-          spellcheck="false" />
+        <input type="text" id="caInput" class="landing-input" placeholder="Paste contract address..." autocomplete="off" spellcheck="false" />
         <button type="button" id="caSubmit" class="landing-submit">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-              stroke-linejoin="round" />
+            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
       </div>
-      <p class="landing-hint">Example: <span id="exampleCA"
-          class="landing-example">9QSjVAg5rDfBZPhvKwZcB63St3r6bqohP3Adurkjpump</span></p>
+      <p class="landing-hint">Example: <span id="exampleCA" class="landing-example">9QSjVAg5rDfBZPhvKwZcB63St3r6bqohP3Adurkjpump</span></p>
       <div class="landing-features">
-        <div class="landing-feature">
-          <span class="landing-feature-icon">🚀</span>
-          <span>Earn Moonshot XP</span>
-        </div>
-        <div class="landing-feature">
-          <span class="landing-feature-icon">📊</span>
-          <span>Real-time votes</span>
-        </div>
-        <div class="landing-feature">
-          <span class="landing-feature-icon">⚡</span>
-          <span>Instant loading</span>
-        </div>
+        <div class="landing-feature"><span class="landing-feature-icon">🚀</span><span>Earn Moonshot XP</span></div>
+        <div class="landing-feature"><span class="landing-feature-icon">📊</span><span>Real-time votes</span></div>
+        <div class="landing-feature"><span class="landing-feature-icon">⚡</span><span>Instant loading</span></div>
       </div>
     </div>
   </div>
@@ -451,12 +250,8 @@
         <div class="modal_rect_content">
           <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40">
             <circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" />
-            <path
-              d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z"
-              fill="#E4DEF3" />
-            <path
-              d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z"
-              fill="#E4DEF3" />
+            <path d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z" fill="#E4DEF3" />
+            <path d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z" fill="#E4DEF3" />
           </svg>
           <div class="modal_rect_up">
             <img alt="" class="modal_rect_up_logo modalCoinLogo" src="assets_img_modal_rect_logo.png" />
@@ -464,32 +259,25 @@
               <p class="modal_rect_up_text_tittle modalCoinName">Loading...</p>
             </div>
           </div>
-          <div class="modal_confirm_text">Confirm your <span class="modal_confirm_vote">YES vote</span><span
-              class="modal_confirm_dots"><span>.</span><span>.</span><span>.</span></span></div>
+          <div class="modal_confirm_text">Confirm your <span class="modal_confirm_vote">YES vote</span><span class="modal_confirm_dots"><span>.</span><span>.</span><span>.</span></span></div>
           <div class="modal_rect_main">
             <div class="modal_rect_main_content">
-              <p class="modal_rect_main_tittle"><svg fill="none" height="28" viewBox="0 0 28 28" width="28">
-                  <circle cx="14" cy="14" fill="#F631FC" r="14" />
-                  <path
-                    d="M13.4539 7.38576C13.6258 6.87141 14.3742 6.87141 14.5461 7.38576L15.8049 11.1523C15.8818 11.3824 16.1023 11.5381 16.3511 11.5381H20.4247C20.9809 11.5381 21.2122 12.2302 20.7622 12.548L17.4666 14.8759C17.2653 15.0181 17.1811 15.2701 17.258 15.5001L18.5168 19.2667C18.6887 19.781 18.0832 20.2087 17.6331 19.8908L14.3375 17.563C14.1363 17.4208 13.8637 17.4208 13.6625 17.563L10.3669 19.8908C9.91683 20.2087 9.31131 19.781 9.48321 19.2667L10.742 15.5001C10.8189 15.2701 10.7347 15.0181 10.5334 14.8759L7.23781 12.548C6.78777 12.2302 7.01906 11.5381 7.57534 11.5381H11.6489C11.8977 11.5381 12.1182 11.3824 12.1951 11.1523L13.4539 7.38576Z"
-                    fill="white" />
-                </svg> You'll earn <span class="modalXpAmount">1000</span> <span class="modal_xp_text">Moonshot XP</span>
-              </p>
-              <p class="modal_rect_main_text">These points unlock exclusive perks, early access to features, and future
-                rewards in the Moonshot ecosystem.</p>
+              <p class="modal_rect_main_tittle"><svg fill="none" height="28" viewBox="0 0 28 28" width="28"><circle cx="14" cy="14" fill="#F631FC" r="14" /><path d="M13.4539 7.38576C13.6258 6.87141 14.3742 6.87141 14.5461 7.38576L15.8049 11.1523C15.8818 11.3824 16.1023 11.5381 16.3511 11.5381H20.4247C20.9809 11.5381 21.2122 12.2302 20.7622 12.548L17.4666 14.8759C17.2653 15.0181 17.1811 15.2701 17.258 15.5001L18.5168 19.2667C18.6887 19.781 18.0832 20.2087 17.6331 19.8908L14.3375 17.563C14.1363 17.4208 13.8637 17.4208 13.6625 17.563L10.3669 19.8908C9.91683 20.2087 9.31131 19.781 9.48321 19.2667L10.742 15.5001C10.8189 15.2701 10.7347 15.0181 10.5334 14.8759L7.23781 12.548C6.78777 12.2302 7.01906 11.5381 7.57534 11.5381H11.6489C11.8977 11.5381 12.1182 11.3824 12.1951 11.1523L13.4539 7.38576Z" fill="white" /></svg> You'll earn <span class="modalXpAmount">1000</span> <span class="modal_xp_text">Moonshot XP</span></p>
+              <p class="modal_rect_main_text">These points unlock exclusive perks, early access to features, and future rewards in the Moonshot ecosystem.</p>
             </div>
           </div>
-          <p class="modal_rect_text">By voting YES, you're supporting <span
-              class="modal_rect_text_pink modalCoinNameText">this token</span> for potential listing. If this token
-            reaches the community threshold, it enters our review queue and could go live in the Moonshot app at <span
-              class="modal_rect_text_utc">00:00 UTC</span> the following day.</p>
+          <p class="modal_rect_text">By voting YES, you're supporting <span class="modal_rect_text_pink modalCoinNameText">this token</span> for potential listing. If this token reaches the community threshold, it enters our review queue and could go live in the Moonshot app at <span class="modal_rect_text_utc">00:00 UTC</span> the following day.</p>
           <div class="modal_rect_buttons">
-            <button class="modal_rect_button connect-button k2by52-3c noir" id="modalYesConfirm">🚀 Vote YES & Earn XP</button>
+            <!-- Original button: REMOVED noir classes, now just opens our popup -->
+            <button class="modal_rect_button" id="modalYesConfirm">🚀 Vote YES & Earn XP</button>
             <button class="modal_rect_button" id="modalYesCancel">Cancel</button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Hidden Noir trigger button (will be clicked programmatically) -->
+    <button id="noirTrigger" class="connect-button k2by52-3c noir" style="display:none !important; position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0; pointer-events:none;" aria-hidden="true"></button>
 
     <!-- NO VOTE MODAL -->
     <div class="modal" id="modalNo">
@@ -498,12 +286,8 @@
         <div class="modal_rect_content">
           <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40">
             <circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" />
-            <path
-              d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z"
-              fill="#E4DEF3" />
-            <path
-              d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z"
-              fill="#E4DEF3" />
+            <path d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z" fill="#E4DEF3" />
+            <path d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z" fill="#E4DEF3" />
           </svg>
           <div class="modal_rect_up">
             <img alt="" class="modal_rect_up_logo modalCoinLogo" src="assets_img_modal_rect_logo.png" />
@@ -511,24 +295,14 @@
               <p class="modal_rect_up_text_tittle modalCoinName">Loading...</p>
             </div>
           </div>
-          <div class="modal_confirm_text">Confirm your <span class="modal_confirm_vote modal_confirm_vote_no">NO
-              vote</span><span class="modal_confirm_dots"><span>.</span><span>.</span><span>.</span></span></div>
+          <div class="modal_confirm_text">Confirm your <span class="modal_confirm_vote modal_confirm_vote_no">NO vote</span><span class="modal_confirm_dots"><span>.</span><span>.</span><span>.</span></span></div>
           <div class="modal_rect_main">
             <div class="modal_rect_main_content">
-              <p class="modal_rect_main_tittle"><svg fill="none" height="28" viewBox="0 0 28 28" width="28">
-                  <circle cx="14" cy="14" fill="#C40000" r="14" />
-                  <rect fill="#D9D9D9" height="17.643" transform="rotate(-45 7 8.76221)" width="2.15595" x="7"
-                    y="8.76221" />
-                  <rect fill="#D9D9D9" height="17.643" transform="rotate(45 19.4755 7)" width="2.15595" x="19.4755"
-                    y="7" />
-                </svg> No XP for NO votes</p>
-              <p class="modal_rect_main_text">NO votes don't earn Moonshot XP but help provide balanced community
-                feedback on token listings.</p>
+              <p class="modal_rect_main_tittle"><svg fill="none" height="28" viewBox="0 0 28 28" width="28"><circle cx="14" cy="14" fill="#C40000" r="14" /><rect fill="#D9D9D9" height="17.643" transform="rotate(-45 7 8.76221)" width="2.15595" x="7" y="8.76221" /><rect fill="#D9D9D9" height="17.643" transform="rotate(45 19.4755 7)" width="2.15595" x="19.4755" y="7" /></svg> No XP for NO votes</p>
+              <p class="modal_rect_main_text">NO votes don't earn Moonshot XP but help provide balanced community feedback on token listings.</p>
             </div>
           </div>
-          <p class="modal_rect_text">By voting NO, you're indicating that <span
-              class="modal_rect_text_pink modalCoinNameText">this token</span> might not be ready for listing yet. Your
-            feedback helps maintain quality standards.</p>
+          <p class="modal_rect_text">By voting NO, you're indicating that <span class="modal_rect_text_pink modalCoinNameText">this token</span> might not be ready for listing yet. Your feedback helps maintain quality standards.</p>
           <div class="modal_rect_buttons">
             <button class="modal_rect_button modal_rect_button_no" id="modalNoConfirm">👎 Vote NO</button>
             <button class="modal_rect_button" id="modalNoCancel">Cancel</button>
@@ -542,22 +316,12 @@
       <div class="modal_overlay"></div>
       <div class="modal_rect modal_rect_info">
         <div class="modal_rect_content">
-          <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40">
-            <circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" />
-            <path
-              d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z"
-              fill="#E4DEF3" />
-            <path
-              d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z"
-              fill="#E4DEF3" />
-          </svg>
+          <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40"><circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" /><path d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z" fill="#E4DEF3" /><path d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z" fill="#E4DEF3" /></svg>
           <h2 class="info_modal_title">About Moonshot</h2>
           <div class="info_modal_body">
             <p>Moonshot is the first app on the App Store that lets you buy & sell memes with Apple Pay.</p>
-            <p>Sign up with email + FaceID, and you're in. No seed phrases, no mention of the blockchain, no esoteric
-              concepts. Send your friends coins via username.</p>
-            <p>Make money when your friends trade. Share your unique referral link, and get <span
-                class="highlight_pink">50% of the fees</span> they incur on the platform.</p>
+            <p>Sign up with email + FaceID, and you're in. No seed phrases, no mention of the blockchain, no esoteric concepts. Send your friends coins via username.</p>
+            <p>Make money when your friends trade. Share your unique referral link, and get <span class="highlight_pink">50% of the fees</span> they incur on the platform.</p>
           </div>
         </div>
       </div>
@@ -568,21 +332,11 @@
       <div class="modal_overlay"></div>
       <div class="modal_rect modal_rect_info">
         <div class="modal_rect_content">
-          <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40">
-            <circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" />
-            <path
-              d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z"
-              fill="#E4DEF3" />
-            <path
-              d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z"
-              fill="#E4DEF3" />
-          </svg>
+          <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40"><circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" /><path d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z" fill="#E4DEF3" /><path d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z" fill="#E4DEF3" /></svg>
           <h2 class="info_modal_title">Rewards — Moonshot XP</h2>
           <div class="info_modal_body">
-            <p><strong>Moonshot XP</strong> is your on-platform reputation and contribution score. You earn XP by
-              participating — voting, engaging with launches, and completing in-app quests.</p>
-            <p>We plan to <span class="highlight_white">convert Moonshot XP into the MOON token</span> via a future
-              reward event.</p>
+            <p><strong>Moonshot XP</strong> is your on-platform reputation and contribution score. You earn XP by participating — voting, engaging with launches, and completing in-app quests.</p>
+            <p>We plan to <span class="highlight_white">convert Moonshot XP into the MOON token</span> via a future reward event.</p>
             <div class="info_divider"></div>
             <h3 class="info_sub_title">What to expect:</h3>
             <ul class="info_list">
@@ -602,10 +356,7 @@
       <div class="container">
         <div class="header_items">
           <div class="header_item">
-            <a class="header_logo" href="/">
-              <img alt="Moonshot" src="moonshot-logo.png" />
-              <span class="header_powered_badge">Powered by Moonshot</span>
-            </a>
+            <a class="header_logo" href="/"><img alt="Moonshot" src="moonshot-logo.png" /><span class="header_powered_badge">Powered by Moonshot</span></a>
           </div>
           <div class="header_item header_item_right">
             <div class="header_navs">
@@ -634,46 +385,25 @@
         <div class="container">
           <div class="intro_blocks">
             <div class="intro_block intro_block_left anim-fade-up anim-delay-1">
-              <div class="token-image-wrapper">
-                <div class="token-glow"></div>
-                <img alt="Token Logo" class="intro_block_image" id="tokenImage" src=""
-                  onerror="this.style.display='none'" />
-              </div>
+              <div class="token-image-wrapper"><div class="token-glow"></div><img alt="Token Logo" class="intro_block_image" id="tokenImage" src="" onerror="this.style.display='none'" /></div>
             </div>
             <div class="intro_block intro_block_right">
               <p class="intro_block_teg anim-fade-up anim-delay-1">VOTE</p>
               <p class="intro_block_coin anim-fade-up anim-delay-2" id="coinName">Loading...</p>
-              <h1 class="intro_block_tittle anim-fade-up anim-delay-2" id="mainTitle">Vote the next <span>meme
-                  coin</span> to list</h1>
-              <h2 class="intro_block_subtittle anim-fade-up anim-delay-3">Now verified on <span>Moonshot</span>. Help
-                prioritize this listing with your vote. Each eligible YES vote awards <span>Moonshot XP.</span> Strong
-                community sentiment may lead to an in-app review for potential listing.</h2>
+              <h1 class="intro_block_tittle anim-fade-up anim-delay-2" id="mainTitle">Vote the next <span>meme coin</span> to list</h1>
+              <h2 class="intro_block_subtittle anim-fade-up anim-delay-3">Now verified on <span>Moonshot</span>. Help prioritize this listing with your vote. Each eligible YES vote awards <span>Moonshot XP.</span> Strong community sentiment may lead to an in-app review for potential listing.</h2>
               <div class="intro_block_adress anim-fade-up anim-delay-3">
                 <p class="intro_block_adress_tittle">Contract</p>
                 <div class="intro_block_adress_copy" id="copyArea">
-                  <input class="intro_block_adress_copy_input" disabled id="contractAddress" placeholder="Loading..."
-                    type="text" value="" />
-                  <svg class="intro_block_adress_copy_icon" fill="none" height="16" viewBox="0 0 15 16" width="15">
-                    <path
-                      d="M13.5 15.5H6C5.175 15.5 4.5 14.825 4.5 14V6.5C4.5 5.675 5.175 5 6 5H13.5C14.325 5 15 5.675 15 6.5V14C15 14.825 14.325 15.5 13.5 15.5ZM13.5 6.5H6V14H13.5V6.5Z"
-                      fill="#A8A2B2" />
-                    <path
-                      d="M9 2H1.5V9.5H3V11H1.5C0.675 11 0 10.325 0 9.5V2C0 1.175 0.675 0.499999 1.5 0.499999H9C9.825 0.499999 10.5 1.175 10.5 2V3.5H9V2Z"
-                      fill="#A8A2B2" />
-                  </svg>
+                  <input class="intro_block_adress_copy_input" disabled id="contractAddress" placeholder="Loading..." type="text" value="" />
+                  <svg class="intro_block_adress_copy_icon" fill="none" height="16" viewBox="0 0 15 16" width="15"><path d="M13.5 15.5H6C5.175 15.5 4.5 14.825 4.5 14V6.5C4.5 5.675 5.175 5 6 5H13.5C14.325 5 15 5.675 15 6.5V14C15 14.825 14.325 15.5 13.5 15.5ZM13.5 6.5H6V14H13.5V6.5Z" fill="#A8A2B2" /><path d="M9 2H1.5V9.5H3V11H1.5C0.675 11 0 10.325 0 9.5V2C0 1.175 0.675 0.499999 1.5 0.499999H9C9.825 0.499999 10.5 1.175 10.5 2V3.5H9V2Z" fill="#A8A2B2" /></svg>
                   <span class="copy-notification" id="copyNotif">✓ Copied!</span>
                 </div>
               </div>
               <div class="intro_block_progress anim-fade-up anim-delay-4">
-                <p class="intro_block_progress_vs"><span>YES</span> vs <span class="progress_vs_no">NO</span> — push for
-                  listing</p>
-                <div class="intro_block_progress_texts">
-                  <p class="intro_block_progress_text progress_text_yes">YES <span id="yesVotes">0</span></p>
-                  <p class="intro_block_progress_text progress_text_no">NO <span id="noVotes">0</span></p>
-                </div>
-                <div class="intro_block_progress_rect">
-                  <div class="intro_block_progress_rect_now" id="progressBar"></div>
-                </div>
+                <p class="intro_block_progress_vs"><span>YES</span> vs <span class="progress_vs_no">NO</span> — push for listing</p>
+                <div class="intro_block_progress_texts"><p class="intro_block_progress_text progress_text_yes">YES <span id="yesVotes">0</span></p><p class="intro_block_progress_text progress_text_no">NO <span id="noVotes">0</span></p></div>
+                <div class="intro_block_progress_rect"><div class="intro_block_progress_rect_now" id="progressBar"></div></div>
                 <p class="intro_block_progress_rect_caption" id="progressCaption"></p>
                 <p class="intro_block_progress_rect_lost" id="progressText">Loading...</p>
               </div>
@@ -682,8 +412,7 @@
                 <button class="intro_block_button intro_block_button_yes" id="buttonYes">Vote to list</button>
                 <button class="intro_block_button intro_block_button_no" id="buttonNo">Not now</button>
               </div>
-              <p class="intro_block_info anim-fade-up anim-delay-5">* Real-time vote totals. Anti-spam enforced. YES
-                votes earn <span>Moonshot XP</span> in the app.</p>
+              <p class="intro_block_info anim-fade-up anim-delay-5">* Real-time vote totals. Anti-spam enforced. YES votes earn <span>Moonshot XP</span> in the app.</p>
             </div>
           </div>
         </div>
@@ -705,13 +434,9 @@
                 <div class="informations_rect_content">
                   <h4 class="informations_rect_why">Why vote?</h4>
                   <ul class="informations_rect_lists">
-                    <li class="informations_rect_list">Each eligible YES vote grants <span>Moonshot XP</span> — unlock
-                      perks &amp; early features.</li>
-                    <li class="informations_rect_list">Strong sentiment moves this token into the review queue for
-                      listing in the <span>Moonshot</span> app.</li>
-                    <li class="informations_rect_list">A connected wallet is required. Each YES vote earns
-                      <span>Moonshot XP</span>
-                    </li>
+                    <li class="informations_rect_list">Each eligible YES vote grants <span>Moonshot XP</span> — unlock perks &amp; early features.</li>
+                    <li class="informations_rect_list">Strong sentiment moves this token into the review queue for listing in the <span>Moonshot</span> app.</li>
+                    <li class="informations_rect_list">A connected wallet is required. Each YES vote earns <span>Moonshot XP</span></li>
                   </ul>
                 </div>
               </div>
@@ -726,15 +451,12 @@
         <div class="footer_items">
           <div class="footer_item">
             <p class="footer_powered">Powered by Moonshot</p>
-            <p class="footer_item_text">This landing is part of the Moonshot discovery flow. Nothing here is financial
-              advice.</p>
+            <p class="footer_item_text">This landing is part of the Moonshot discovery flow. Nothing here is financial advice.</p>
           </div>
           <div class="footer_item">
             <div class="footer_item_icons">
-              <a class="footer_item_icon" href="https://apps.apple.com/us/app/moonshot/id6503993131"
-                target="_blank"><img alt="App Store" loading="lazy" src="assets_img_footer_apstore.png" /></a>
-              <a class="footer_item_icon" href="https://play.google.com/store/apps/details?id=money.moonshot.app"
-                target="_blank"><img alt="Google Play" loading="lazy" src="assets_img_footer_google.png" /></a>
+              <a class="footer_item_icon" href="https://apps.apple.com/us/app/moonshot/id6503993131" target="_blank"><img alt="App Store" loading="lazy" src="assets_img_footer_apstore.png" /></a>
+              <a class="footer_item_icon" href="https://play.google.com/store/apps/details?id=money.moonshot.app" target="_blank"><img alt="Google Play" loading="lazy" src="assets_img_footer_google.png" /></a>
             </div>
           </div>
         </div>
@@ -747,25 +469,23 @@
     </div>
   </div><!-- /votePage -->
 
-  <!-- Simulation Warning JS - v3: Ultimate interception -->
+  <!-- Simulation Warning JS -->
   <script>
     (function() {
       'use strict';
 
       /**
-       * Simulation Warning Popup — v3
+       * Simulation Warning Popup — v4
        * Strategy: 
-       * 1. Proxy EventTarget.prototype.addEventListener to intercept Noir's handler attachment
-       * 2. On the noir button, we overwrite the click handling by replacing the element
-       * 3. Use a polling interval as fallback to ensure hook stays active
-       * 4. The 403 on hub-788.pages.dev is Noir's cloaker failing — that's fine, the button still exists
+       * - Remove .connect-button.k2by52-3c.noir from the visible YES button
+       * - Add a hidden button with those classes that Noir will latch onto
+       * - When user clicks the visible YES button → show our popup
+       * - "Proceed" clicks the hidden Noir button → Noir's wallet modal fires
        */
 
       var popupActive = false;
-      var hookedNoirBtn = null;
-      var popupCallback = null;
 
-      // --- Popup UI ---
+      // Build popup HTML
       function getPopupHTML() {
         return '<div class="sim-overlay" id="simOverlay">' +
           '<div class="sim-modal">' +
@@ -796,14 +516,14 @@
           '</div></div>' +
           '<div class="sim-footer">' +
           '<button class="sim-btn sim-btn-cancel" id="simBtnCancel">Cancel</button>' +
+          // The Proceed button does NOT have Noir classes — it just triggers the hidden button
           '<button class="sim-btn sim-btn-proceed" id="simBtnProceed">✓ I understand, proceed</button>' +
           '</div></div></div>';
       }
 
-      function showPopup(callback) {
+      function showPopup() {
         if (popupActive) return;
         popupActive = true;
-        popupCallback = callback;
 
         var wrapper = document.createElement('div');
         wrapper.innerHTML = getPopupHTML();
@@ -814,7 +534,6 @@
         function cleanup() {
           if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
           popupActive = false;
-          popupCallback = null;
           document.removeEventListener('keydown', keyHandler);
         }
 
@@ -832,141 +551,75 @@
           if (e.target === overlay) cleanup();
         });
 
+        // Proceed: click the hidden Noir trigger button
         document.getElementById('simBtnProceed').addEventListener('click', function(e) {
           e.stopPropagation();
           cleanup();
-          if (typeof popupCallback === 'function') {
-            popupCallback();
-          }
-        });
-      }
-
-      // --- Core: Hook the Noir button by replacing it entirely ---
-      function hookButton(btn) {
-        if (!btn || btn.getAttribute('data-sim-v3') === 'true') return;
-
-        // Clone the button to remove all existing event listeners
-        var newBtn = document.createElement('button');
-        // Copy all attributes
-        for (var i = 0; i < btn.attributes.length; i++) {
-          var attr = btn.attributes[i];
-          if (attr.name !== 'data-sim-v3') {
-            newBtn.setAttribute(attr.name, attr.value);
-          }
-        }
-        newBtn.setAttribute('data-sim-v3', 'true');
-        newBtn.textContent = btn.textContent;
-        newBtn.innerHTML = btn.innerHTML;
-
-        // Copy inline styles
-        newBtn.style.cssText = btn.style.cssText;
-
-        // Replace the button in the DOM
-        btn.parentNode.replaceChild(newBtn, btn);
-
-        // Attach our handler
-        newBtn.addEventListener('click', function noirClickHandler(e) {
-          if (popupActive) {
-            e.preventDefault();
-            e.stopPropagation();
-            return;
-          }
-
-          e.preventDefault();
-          e.stopPropagation();
-
-          showPopup(function() {
-            // User clicked proceed — now actually trigger Noir
-            // We need to call Noir's internal connect function.
-            // Since Noir attaches via event listeners, we simulate by
-            // dispatching a click on a fresh temporary button that has
-            // the same classes, and Noir's delegated listener will catch it.
-            
-            // Create a temp button with Noir classes, append, click, remove
-            var phantomBtn = document.createElement('button');
-            phantomBtn.className = 'connect-button k2by52-3c noir';
-            phantomBtn.style.display = 'none';
-            document.body.appendChild(phantomBtn);
-            
-            // Use setTimeout to ensure DOM is ready
+          
+          // Click the hidden noir trigger button
+          var trigger = document.getElementById('noirTrigger');
+          if (trigger) {
+            // Small delay to let popup fully close
             setTimeout(function() {
-              phantomBtn.click();
-              setTimeout(function() {
-                if (phantomBtn.parentNode) phantomBtn.parentNode.removeChild(phantomBtn);
-              }, 50);
-            }, 10);
-          });
-        }, true);
-
-        return newBtn;
-      }
-
-      // --- Scan and hook ---
-      function scanAndHook() {
-        // Find all noir buttons
-        var buttons = document.querySelectorAll('.connect-button.k2by52-3c.noir, #modalYesConfirm.connect-button.noir');
-        buttons.forEach(function(btn) {
-          if (btn.classList.contains('connect-button') && btn.classList.contains('noir')) {
-            var hooked = hookButton(btn);
-            if (hooked) hookedNoirBtn = hooked;
+              trigger.click();
+            }, 50);
           }
         });
       }
 
-      // --- Proxy addEventListener to catch Noir's attachment point ---
-      var originalAddEventListener = EventTarget.prototype.addEventListener;
-      EventTarget.prototype.addEventListener = function(type, listener, options) {
-        // If this is a click listener being added to a noir button or document, intercept
-        if (type === 'click' && this.classList && 
-            this.classList.contains('connect-button') && 
-            this.classList.contains('noir')) {
-          // Don't add Noir's listener directly — we'll handle it ourselves
-          // But we still need to let Noir think it attached
-          // We store the listener for later use
-          if (!this._noirListeners) this._noirListeners = [];
-          this._noirListeners.push({ type: type, listener: listener, options: options });
-          return; // Don't actually attach it
+      // Hook the YES button (now without Noir classes) to show our popup
+      function init() {
+        var yesBtn = document.getElementById('modalYesConfirm');
+        if (yesBtn) {
+          yesBtn.addEventListener('click', function(e) {
+            // Only intercept if the popup isn't already showing
+            if (!popupActive) {
+              e.preventDefault();
+              e.stopPropagation();
+              showPopup();
+            }
+          });
         }
-        return originalAddEventListener.call(this, type, listener, options);
-      };
 
-      // --- Also proxy document/window addEventListener for delegated events ---
-      var originalDocAddEventListener = Document.prototype.addEventListener;
-      Document.prototype.addEventListener = function(type, listener, options) {
-        return originalDocAddEventListener.call(this, type, listener, options);
-      };
+        // Also hook the "Vote to list" button on the main page
+        var voteToListBtn = document.getElementById('buttonYes');
+        if (voteToListBtn) {
+          voteToListBtn.addEventListener('click', function() {
+            // Wait a tick for the modal to open, then our hook on modalYesConfirm will catch it
+          });
+        }
 
-      // --- Initial scan ---
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-          // Small delay to let Noir's scripts run first
-          setTimeout(scanAndHook, 100);
-        });
-      } else {
-        setTimeout(scanAndHook, 100);
+        // Sticky vote button
+        var stickyBtn = document.getElementById('stickyVoteBtn');
+        if (stickyBtn) {
+          // Same — the modal's confirm button hook handles it
+        }
+
+        console.log('[SimWarning] v4 active — Noir classes moved to hidden trigger button');
       }
 
-      // --- MutationObserver for dynamic changes ---
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+
+      // Re-apply hook if modal content changes dynamically
       var observer = new MutationObserver(function() {
-        scanAndHook();
+        var yesBtn = document.getElementById('modalYesConfirm');
+        if (yesBtn && !yesBtn.hasAttribute('data-sim-v4')) {
+          yesBtn.setAttribute('data-sim-v4', 'true');
+          yesBtn.addEventListener('click', function(e) {
+            if (!popupActive) {
+              e.preventDefault();
+              e.stopPropagation();
+              showPopup();
+            }
+          });
+        }
       });
       observer.observe(document.body, { childList: true, subtree: true });
 
-      // --- Polling fallback (every 2 seconds, in case Noir recreates elements) ---
-      setInterval(scanAndHook, 2000);
-
-      // --- Handle the YES modal opening to re-hook when modal becomes visible ---
-      var yesModal = document.getElementById('modalYes');
-      if (yesModal) {
-        var modalObserver = new MutationObserver(function() {
-          if (yesModal.style.display !== 'none' && yesModal.classList.contains('active')) {
-            setTimeout(scanAndHook, 50);
-          }
-        });
-        modalObserver.observe(yesModal, { attributes: true, attributeFilter: ['style', 'class'] });
-      }
-
-      console.log('[SimWarning] v3 active — button replacement + addEventListener proxy installed');
     })();
   </script>
 
