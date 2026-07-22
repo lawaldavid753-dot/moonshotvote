@@ -29,7 +29,7 @@ module.exports = async function handler(req, res) {
         const tokenName = best.baseToken.name || 'Token';
         const tokenTicker = best.baseToken.symbol || 'TKN';
         title = `Vote ${tokenName} to list on Moonshot`;
-        desc = `Vote YES to earn XP. Help prioritize ${tokenTicker} for potential listing in the Moonshot app.`;
+        desc = `Vote YES to earn XP. Help prioritize ${tokenName} for potential listing in the Moonshot app.`;
       }
     }
 
