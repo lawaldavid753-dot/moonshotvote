@@ -1,7 +1,16 @@
 {
+  "functions": {
+    "api/token.js": {
+      "memory": 1024,
+      "maxDuration": 10,
+      "includeFiles": "index.html"
+    },
+    "api/og.js": {
+      "memory": 256,
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/([A-Za-z0-9]{20,})", "destination": "/api/token?ca=$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/([A-Za-z0-9]{20,})", "destination": "/api/token?ca=$1" }
   ]
 }
