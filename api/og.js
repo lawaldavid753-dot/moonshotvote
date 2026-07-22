@@ -1,18 +1,23 @@
-const { ImageResponse } = require('@vercel/og');
-const React = require('react');
+import { ImageResponse } from '@vercel/og';
+import React from 'react';
 
-module.exports = async function handler(req, res) {
+export const config = {
+  runtime: 'edge',
+};
+
+export default async function handler(request) {
   try {
-    const ca = req.query.ca || '';
+    const { searchParams } = new URL(request.url);
+    const ca = searchParams.get('ca');
 
     let tokenName = 'Token';
     let tokenTicker = 'TKN';
     let tokenImage = '';
 
     if (ca) {
-      const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`);
-      if (response.ok) {
-        const data = await response.json();
+      const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`);
+      if (res.ok) {
+        const data = await res.json();
         if (data.pairs && data.pairs.length > 0) {
           let best = data.pairs[0];
           for (const p of data.pairs) {
@@ -27,7 +32,7 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    const imageResponse = new ImageResponse(
+    return new ImageResponse(
       React.createElement('div', {
         style: {
           height: '100%',
@@ -41,7 +46,6 @@ module.exports = async function handler(req, res) {
           position: 'relative',
         }
       },
-        // Background gradient top
         React.createElement('div', {
           style: {
             position: 'absolute',
@@ -52,7 +56,6 @@ module.exports = async function handler(req, res) {
             background: 'radial-gradient(ellipse at center, rgba(100, 20, 180, 0.4) 0%, transparent 60%)',
           }
         }),
-        // Background gradient bottom-right
         React.createElement('div', {
           style: {
             position: 'absolute',
@@ -63,7 +66,6 @@ module.exports = async function handler(req, res) {
             background: 'radial-gradient(ellipse at center, rgba(246, 49, 252, 0.2) 0%, transparent 50%)',
           }
         }),
-        // Moonshot logo text
         React.createElement('div', {
           style: {
             position: 'absolute',
@@ -76,7 +78,6 @@ module.exports = async function handler(req, res) {
             fontWeight: 'bold',
           }
         }, '🚀 Moonshot'),
-        // "Powered by Moonshot" badge
         React.createElement('div', {
           style: {
             position: 'absolute',
@@ -92,7 +93,6 @@ module.exports = async function handler(req, res) {
             border: '1px solid #2a2d36',
           }
         }, 'Powered by Moonshot'),
-        // Main Card
         React.createElement('div', {
           style: {
             display: 'flex',
@@ -107,15 +107,14 @@ module.exports = async function handler(req, res) {
             width: '88%',
           }
         },
-          // Left side: Token Image
           React.createElement('div', {
             style: { display: 'flex', marginRight: '48px', flexShrink: '0' }
           },
             tokenImage
               ? React.createElement('img', {
                   src: tokenImage,
-                  width: '180',
-                  height: '180',
+                  width: 180,
+                  height: 180,
                   style: { borderRadius: '50%', border: '4px solid #2a2d36', objectFit: 'cover' }
                 })
               : React.createElement('div', {
@@ -133,7 +132,6 @@ module.exports = async function handler(req, res) {
                   }
                 }, '?')
           ),
-          // Right side: Token Details
           React.createElement('div', {
             style: { display: 'flex', flexDirection: 'column', flex: '1' }
           },
@@ -171,7 +169,6 @@ module.exports = async function handler(req, res) {
                 lineHeight: '1.4',
               }
             }, 'Vote the next meme coin to list on Moonshot'),
-            // Vote button
             React.createElement('div', {
               style: {
                 display: 'flex',
@@ -191,7 +188,6 @@ module.exports = async function handler(req, res) {
             )
           )
         ),
-        // Bottom bar
         React.createElement('div', {
           style: {
             position: 'absolute',
@@ -213,25 +209,10 @@ module.exports = async function handler(req, res) {
         height: 630,
       }
     );
-
-    // Get the image buffer from the ImageResponse
-    const buffer = await imageResponse.arrayBuffer();
-
-    res.setHeader('Content-Type', 'image/png');
-    res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600');
-    return res.send(Buffer.from(buffer));
-
   } catch (e) {
     console.error('OG Image generation error:', e);
-    // Return a simple fallback SVG
-    const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100%" height="100%" fill="#0d0a1a"/>
-      <text x="600" y="280" fill="#f631fc" font-size="48" text-anchor="middle" font-family="sans-serif" font-weight="bold">VOTE</text>
-      <text x="600" y="350" fill="#ffffff" font-size="36" text-anchor="middle" font-family="sans-serif">Vote the next meme coin to list</text>
-      <text x="600" y="400" fill="#a8a2b2" font-size="24" text-anchor="middle" font-family="sans-serif">Powered by Moonshot</text>
-    </svg>`;
-    res.setHeader('Content-Type', 'image/svg+xml');
-    res.setHeader('Cache-Control', 'public, max-age=60');
-    return res.send(svg);
+    return new Response(`Failed to generate the image`, {
+      status: 500,
+    });
   }
-};
+}
