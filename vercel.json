@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/([A-Za-z0-9]{20,})", "destination": "/api/token?ca=$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
